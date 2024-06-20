@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'inner-custom': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)', 
+      },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(100%)' },

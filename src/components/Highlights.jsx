@@ -1,12 +1,12 @@
 import React from "react";
-import image1 from "../../public/column-1-image.jpg";
-import image2 from "../../public/column-2-image-1.jpg";
-import image3 from "../../public/column-2-image-2.jpg";
+import NewsCard from "./NewsCard";
 
-const Highlights = () => {
+const Highlights = (props) => {
   return (
-    <section className="highlights">
-        
+    <section className="min-h-[60vh] w-full">
+      <div className="grid grid-cols-4">
+        <NewsCard searchInput={props.searchInput} />
+      </div>
     </section>
   );
 };
