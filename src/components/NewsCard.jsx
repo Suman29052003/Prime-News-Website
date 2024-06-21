@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const NewsCard = ({ news }) => {
   return (
-    <div className="news-card h-full w-full flex flex-col items-center justify-center m-2 bg-[#d5d5d5] shadow-lg p-2 rounded-lg">
+    <div className="news-card h-full w-full flex flex-col items-center  m-2 bg-[#d5d5d5] shadow-lg p-2 rounded-lg">
       <figure className="image w-[90%]">
         <img src={news.urlToImage} alt="" className="rounded-lg" />
       </figure>
