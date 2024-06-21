@@ -5,14 +5,16 @@ import LocationAndWeather from './components/LocationAndWeather';
 import Highlights from './components/Highlights';
 
 const App = () => {
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState('top-headlines');
+  const [activeLink, setActiveLink] = useState('HOME');
+
 
   return (
     <>
-      <Navbar setSearchInput={setSearchInput} />
+      <Navbar setSearchInput={setSearchInput} setActiveLink={setActiveLink} activeLink={activeLink} />
       <TopStories />
       <LocationAndWeather />
-      <Highlights searchInput={searchInput} />
+      <Highlights searchInput={searchInput}  activeLink={activeLink} />
     </>
   );
 };
