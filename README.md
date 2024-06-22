@@ -1,55 +1,63 @@
-Prime News
-Prime News is a responsive web application that provides users with top headlines and articles across various categories. It utilizes the News API to fetch real-time news data and allows users to explore articles, save favorites, and filter by category or search term.
+# Prime News App
 
+Prime News App is a React-based web application that allows users to browse and read news articles from various categories. It integrates with the News API to fetch real-time news data and provides features such as favorite articles, detailed article view, weather information, and more.
 
-Features
-Top Stories: Display top headlines from various news sources.
-Category Filtering: Navigate through categories like Politics, Business, Sports, and more.
-Search Functionality: Search for articles by keywords.
-Detailed View: View full details of an article, including images and content.
-Favorites: Save favorite articles using localStorage.
-Pagination: Navigate through different pages of articles.
-Technologies Used
-Frontend: React.js, Redux Toolkit, React Router DOM, Axios
-Styling: Tailwind CSS
-API: News API
-Build Tools: Vite (for fast development and optimized builds)
-Installation
-Clone the repository:
+![Prime News App Screenshot](./demo/screenshot.png)
 
-bash
-Copy code
-git clone <repository-url>
-cd prime-news-app
-Install dependencies:
+## Features
 
-bash
-Copy code
-npm install
-Set up environment variables:
+- **Top Stories**: Display top news stories with a scrolling ticker for headlines.
+- **Category Navigation**: Navigate through different news categories such as Politics, Business, Sports, Fashion, etc., using the navbar.
+- **Search**: Search functionality to filter news articles based on keywords.
+- **Detailed Article View**: View detailed information about each article, including the full content and the option to visit the original source.
+- **Favorites**: Mark articles as favorites and store them locally using localStorage.
+- **Pagination**: Navigate through pages of articles for seamless browsing.
+- **Weather Information**: Display current weather information based on the user's location input.
 
-Create a .env file in the root directory.
+## Technologies Used
 
-Add your News API key:
+- **React**: Front-end JavaScript library for building user interfaces.
+- **Redux Toolkit**: State management library for managing application state.
+- **React Router**: Declarative routing for React applications.
+- **Axios**: Promise-based HTTP client for making API requests.
+- **News API**: Source of real-time news data.
+- **Tailwind CSS**: Utility-first CSS framework for styling the UI.
 
-plaintext
-Copy code
-REACT_APP_NEWS_API_KEY=your_api_key_here
-Start the development server:
+## Getting Started
 
-bash
-Copy code
-npm start
-Open http://localhost:3000 to view the app in the browser.
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-Usage
-Select a category from the navbar to view related articles.
-Use the search bar to find articles by keywords.
-Click on "Read More" on any article to view its detailed content.
-Favorite articles by clicking the "Favorite" button on each news card.
-Folder Structure
-plaintext
-Copy code
+### Prerequisites
+
+- Node.js (version >= 12.0.0)
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/prime-news-app.git
+
+2. Navigate into the project directory:
+
+    cd prime-news-app
+
+3. Install dependencies:
+
+    npm install
+    # or
+    yarn install
+
+4. Start the development server:
+
+    npm start
+    # or
+    yarn start
+
+5. Open your browser and navigate to http://localhost:5173 to view the app.
+
+# Folder Structure
 src/
 |-- components/
 |   |-- Navbar.jsx
@@ -63,11 +71,17 @@ src/
 |-- App.jsx
 |-- index.js
 |-- store.js
-Responsiveness
-Prime News is designed to be fully responsive, ensuring a seamless experience across desktop, tablet, and mobile devices. The layout adapts fluidly to different screen sizes, providing consistent usability and readability.
 
-Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your improvements. For major changes, please open an issue first to discuss what you would like to change.
+# Contributing
+    Contributions are welcome! Please feel free to fork the repository and submit pull requests.
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+# Authors - Suman Saha
+
+# Acknowledgments
+Inspiration: News API
+Icons: Google Icons
+
+# Note
+    Please note that this project uses a public and free version of the News API, which may occasionally encounter issues or have limitations in terms of data availability and rate limits.
+
+
