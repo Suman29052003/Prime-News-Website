@@ -40,17 +40,17 @@ Follow these instructions to get a copy of the project up and running on your lo
    git clone https://github.com/your-username/prime-news-app.git
 
 2. Navigate into the project directory:
-
+    ```bash
     cd prime-news-app
 
 3. Install dependencies:
-
+```bash
     npm install
     # or
     yarn install
 
 4. Start the development server:
-
+```bash
     npm start
     # or
     yarn start
