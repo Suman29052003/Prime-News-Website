@@ -1,4 +1,3 @@
-// src/components/Highlights.jsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPage, addFavorite, removeFavorite } from '../slice/newSlice';

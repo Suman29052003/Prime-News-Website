@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCategory } from '../slice/newSlice';
@@ -14,9 +13,6 @@ const Navbar = () => {
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
-    // Here you may want to dispatch an action to filter articles based on searchTerm
-    // Example:
-    // dispatch(filterArticles(searchTerm));
   };
 
   return (
