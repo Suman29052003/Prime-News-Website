@@ -44,13 +44,13 @@ Follow these instructions to get a copy of the project up and running on your lo
     cd prime-news-app
 
 3. Install dependencies:
-```bash
+    ```bash
     npm install
     # or
     yarn install
 
 4. Start the development server:
-```bash
+    ```bash
     npm start
     # or
     yarn start
