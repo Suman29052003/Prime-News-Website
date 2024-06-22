@@ -1,38 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// src/components/Highlights.jsx
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPage, addFavorite, removeFavorite } from '../slice/newSlice';
 import NewsCard from './NewsCard';
 
-const Highlights = ({ searchInput,activeLink }) => {
-  const [newsList, setNewsList] = useState([]);
-  const [error, setError] = useState(null);
+const Highlights = () => {
+  const dispatch = useDispatch();
+  const { articles, page, favorites, status, error } = useSelector(state => state.news);
 
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const apiUrl = 'https://newsapi.org/v2/everything';
-        const apiKey = 'bc30c0f8aae848838f8fbc055cadbda2'; 
-        const response = await axios.get(`${apiUrl}?q=${searchInput}&apiKey=${apiKey}`);
-        
-        setNewsList(response.data.articles);
-        setError(null); 
-      } catch (error) {
-        console.error('Error fetching news:', error);
-        setError('Error fetching news. Please try again later.'); 
-      }
-    };
-
-    if (searchInput) {
-      fetchNews();
+  const handleFavorite = (article) => {
+    if (favorites.some(fav => fav.url === article.url)) {
+      dispatch(removeFavorite(article));
+    } else {
+      dispatch(addFavorite(article));
     }
-  }, [searchInput]);
+  };
+
+  const handleNextPage = () => {
+    dispatch(setPage(page + 1));
+  };
+
+  const handlePreviousPage = () => {
+    if (page > 1) {
+      dispatch(setPage(page - 1));
+    }
+  };
+
+  if (status === 'loading') return <p>Loading...</p>;
+  if (error) return <p className="text-red-600">{error}</p>;
 
   return (
     <section className="min-h-[60vh] w-full">
-      {error && <p className="text-red-600">{error}</p>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {newsList.map((newsItem, index) => (
-          <NewsCard key={index} news={newsItem} />
+        {articles.map((article, index) => (
+          <NewsCard key={index} news={article} onFavorite={handleFavorite} index={index} />
         ))}
+      </div>
+      <div className="pagination w-full flex justify-between items-center mt-4">
+        <button onClick={handlePreviousPage} className="btn">Previous</button>
+        <span>Page {page}</span>
+        <button onClick={handleNextPage} className="btn">Next</button>
       </div>
     </section>
   );

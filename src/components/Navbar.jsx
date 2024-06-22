@@ -1,10 +1,22 @@
+// src/components/Navbar.jsx
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCategory } from '../slice/newSlice';
 import primeNewsLogo from '/fotor-ai-20240619223645-removebg-preview.png';
 
-const Navbar = ({ setSearchInput,setActiveLink,activeLink }) => {
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const handleInputChange = (e) => {
-    setSearchInput(e.target.value);
+  const handleCategoryChange = (category) => {
+    dispatch(setCategory(category));
+  };
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    // Here you may want to dispatch an action to filter articles based on searchTerm
+    // Example:
+    // dispatch(filterArticles(searchTerm));
   };
 
   return (
@@ -20,14 +32,12 @@ const Navbar = ({ setSearchInput,setActiveLink,activeLink }) => {
 
         <div className="nav-links md:block hidden">
           <ul className="text-white flex gap-4 font-semibold">
-            {['HOME', 'POST', 'PAGES', 'POLITICS', 'BUSINESS', 'SPORTS', 'FASHION'].map(
+            {['POST', 'POLITICS', 'BUSINESS', 'SPORTS', 'FASHION'].map(
               (link) => (
                 <li
                   key={link}
-                  className={`cursor-pointer ${
-                    activeLink === link ? 'text-red-600' : 'hover:text-red-600'
-                  }`}
-                  onClick={() => setActiveLink(link)}
+                  className="cursor-pointer hover:text-red-600"
+                  onClick={() => handleCategoryChange(link.toLowerCase())}
                 >
                   {link}
                 </li>
@@ -40,8 +50,9 @@ const Navbar = ({ setSearchInput,setActiveLink,activeLink }) => {
           <input
             type="search"
             placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearch}
             className="w-full h-full p-2 bg-transparent border-0 outline-0"
-            onChange={handleInputChange}
           />
           <span className="material-symbols-outlined cursor-pointer hover:text-red-600">
             search
